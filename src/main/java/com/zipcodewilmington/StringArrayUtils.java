@@ -1,5 +1,6 @@
 package com.zipcodewilmington;
 
+import java.util.Arrays;
 /**
  * Created by leon on 1/29/18.
  */
@@ -17,6 +18,7 @@ public class StringArrayUtils {
      * @return second element in specified array
      */
     public static String getSecondElement(String[] array) {
+
         return array[1];
     }
 
@@ -25,7 +27,7 @@ public class StringArrayUtils {
      * @return last element in specified array
      */ // TODO
     public static String getLastElement(String[] array) {
-        return null;
+        return array [array.length -1];
     }
 
     /**
@@ -33,7 +35,8 @@ public class StringArrayUtils {
      * @return second to last element in specified array
      */ // TODO
     public static String getSecondToLastElement(String[] array) {
-        return null;
+
+        return array [array.length -2];
     }
 
     /**
@@ -42,7 +45,8 @@ public class StringArrayUtils {
      * @return true if the array contains the specified `value`
      */ // TODO
     public static boolean contains(String[] array, String value) {
-        return false;
+        boolean contains = Arrays.asList(array).contains(value);
+        return contains;
     }
 
     /**
@@ -50,7 +54,12 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        return null;
+        StringBuilder reversed = new StringBuilder();
+        for (int i = array.length; i > 0; i--) {
+            reversed.append(array[i - 1]).append(" ");
+        }
+        String[] reversedArray = reversed.toString().split(" ");
+        return reversedArray;
     }
 
     /**
@@ -58,8 +67,25 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
-        return false;
+        StringBuilder reversed = new StringBuilder();
+        for (int i = array.length - 1; i >= 0; i--) {
+            reversed.append(array[i]);
+        }
+        return reversed.toString().equals(String.join("", array));
     }
+
+//        StringBuilder reversed = new StringBuilder();
+//        boolean isPalindromic = false;
+//        for (int i = array.length; i > 0; i--) {
+//            reversed.append(array[i - 1]).append(" ");
+//        }
+//        String[] reversedArray = reversed.toString().split(" ");
+//        if (Arrays.equals(reversedArray, array)) {
+//            isPalindromic = true;
+//        }
+//        return isPalindromic;
+//    }
+//        Doesn't work because " " messes up with the second test.
 
     /**
      * @param array array of String objects
