@@ -2,6 +2,7 @@ package com.zipcodewilmington;
 
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.List;
 /**
  * Created by leon on 1/29/18.
  */
@@ -149,30 +150,18 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-//        ArrayList<String> Arr = new ArrayList<String>();
-//        String prev = "";
-//        String[] newArray = new String[0];
-//        for (String s : Arr) {
-//            if (!s.equals(prev)) {
-//                Arr.add(s);
-//                prev = s;
-//            }
-//            newArray = Arr.toArray(new String[0]);
-//        }
-//        return newArray;
+        List<String> result = new ArrayList<>();
+        String prev = array[0];
+        result.add(prev);
 
-        for (int i = 0; i < array.length; i++) {
-            for (int j = i + 1; j < array.length; j++) {
-                if (array[i].equals(array[j])) {
-                    for (int k = j; k < array.length - 1; k++) {
-                        array[k] = array[k + 1];
-                    }
-                    array = Arrays.copyOf(array, array.length - 1);
-                    j--;
-                }
+        for (int i = 1; i < array.length; i++) {
+            if (!array[i].equals(prev)) {
+                result.add(array[i]);
+                prev = array[i];
             }
         }
-        return array;
+        String[] strArray = new String[result.size()];
+        return result.toArray(strArray);
     }
 
     /**
