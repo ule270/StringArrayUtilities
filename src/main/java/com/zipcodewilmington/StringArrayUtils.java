@@ -150,7 +150,7 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-        List<String> result = new ArrayList<>();
+        ArrayList<String> result = new ArrayList<>();
         String prev = array[0];
         result.add(prev);
 
@@ -164,6 +164,7 @@ public class StringArrayUtils {
         return result.toArray(strArray);
     }
 
+
     /**
      * @param array array of chars
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
@@ -171,6 +172,4 @@ public class StringArrayUtils {
     public static String[] packConsecutiveDuplicates(String[] array) {
         return null;
     }
-
-
 }
