@@ -1,6 +1,7 @@
 package com.zipcodewilmington;
 
 import java.util.Arrays;
+import java.util.ArrayList;
 /**
  * Created by leon on 1/29/18.
  */
@@ -112,7 +113,7 @@ public class StringArrayUtils {
     public static int getNumberOfOccurrences(String[] array, String value) {
         Arrays.sort(array);
         int count = 0;
-        for (int i = 0, length = array.length; i < length; i++) {
+        for (int i = 0; i < array.length; i++) {
             if (array[i].equals(value)) {
                 count++;
             }
@@ -126,7 +127,21 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+        int num = 0;
+        for (String element : array) {
+            if (!element.equals(valueToRemove)) {
+                num++;
+            }
+        }
+        String[] result = new String[num];
+        int resultIndex = 0;
+        for (String element : array) {
+            if (!element.equals(valueToRemove)) {
+                result[resultIndex] = element;
+                resultIndex++;
+            }
+        }
+        return result;
     }
 
     /**
@@ -134,7 +149,30 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-        return null;
+//        ArrayList<String> Arr = new ArrayList<String>();
+//        String prev = "";
+//        String[] newArray = new String[0];
+//        for (String s : Arr) {
+//            if (!s.equals(prev)) {
+//                Arr.add(s);
+//                prev = s;
+//            }
+//            newArray = Arr.toArray(new String[0]);
+//        }
+//        return newArray;
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[i].equals(array[j])) {
+                    for (int k = j; k < array.length - 1; k++) {
+                        array[k] = array[k + 1];
+                    }
+                    array = Arrays.copyOf(array, array.length - 1);
+                    j--;
+                }
+            }
+        }
+        return array;
     }
 
     /**
