@@ -164,12 +164,16 @@ public class StringArrayUtils {
         return result.toArray(strArray);
     }
 
-
     /**
      * @param array array of chars
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
+        ArrayList<String> result = new ArrayList<>();
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j <
+        }
+            if (array[i].charAt(j).equals()
         return null;
     }
 }
