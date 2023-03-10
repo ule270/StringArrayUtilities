@@ -29,7 +29,7 @@ public class StringArrayUtils {
      * @return last element in specified array
      */ // TODO
     public static String getLastElement(String[] array) {
-        return array [array.length -1];
+        return array[array.length - 1];
     }
 
     /**
@@ -38,7 +38,7 @@ public class StringArrayUtils {
      */ // TODO
     public static String getSecondToLastElement(String[] array) {
 
-        return array [array.length -2];
+        return array[array.length - 2];
     }
 
     /**
@@ -103,7 +103,8 @@ public class StringArrayUtils {
             } else {
                 isPangramic = true;
             }
-        }return isPangramic;
+        }
+        return isPangramic;
     }
 
     /**
@@ -123,7 +124,7 @@ public class StringArrayUtils {
     }
 
     /**
-     * @param array array of String objects
+     * @param array         array of String objects
      * @param valueToRemove value to remove from array
      * @return array with identical contents excluding values of `value`
      */ // TODO
@@ -169,11 +170,16 @@ public class StringArrayUtils {
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
-        ArrayList<String> result = new ArrayList<>();
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j <
+        StringBuilder build = new StringBuilder();
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] == array[i + 1]) {
+                build.append(array[i]);
+            } else {
+                build.append(array[i] + ",");
+            }
         }
-            if (array[i].charAt(j).equals()
-        return null;
+        String resultString = new String(build.toString());
+        String[] finalString = resultString.split(",");
+        return finalString;
     }
 }
